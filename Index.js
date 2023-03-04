@@ -12,11 +12,22 @@ app.use(express.json());
 
 
 const uri = `mongodb+srv://${process.env.BD_USER}:${process.env.BD_PASSWORD}@cluster0.lp0luap.mongodb.net/?retryWrites=true&w=majority`;
+console.log(uri)
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
  
 async function run(){
     try{
+        const libraryCollectionData = client.db('libraryData').collection('user');
+
+      app.post('/user', async(req,res)=>{
+        const user = req.body;
+        const result = await libraryCollectionData.insertOne(user)
+        res.send(result)
+      })
+
+     
+
 
     }
     finally{
