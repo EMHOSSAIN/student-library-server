@@ -21,9 +21,9 @@ async function run() {
 
         app.post('/user', async (req, res) => {
             const user = req.body;
-             const result = await libraryCollectionData.insertOne(user)
-            res.send(result)
-        })
+             const result = await  libraryCollectionData.insertOne(user)
+            res.send(result);
+        }),
 
 
 
