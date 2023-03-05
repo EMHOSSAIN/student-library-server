@@ -21,11 +21,17 @@ async function run() {
 
         app.post('/user', async (req, res) => {
             const user = req.body;
-             const result = await  libraryCollectionData.insertOne(user)
+            const result = await libraryCollectionData.insertOne(user)
             res.send(result);
         })
 
+        app.get('/user', async (req, res) => {
+            const quere = {}
+            const result = await libraryCollectionData.find(quere).toArray()
+            res.send(result)
 
+
+        })
 
 
     }
