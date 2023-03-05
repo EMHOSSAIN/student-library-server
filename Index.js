@@ -23,7 +23,7 @@ async function run() {
             const user = req.body;
              const result = await  libraryCollectionData.insertOne(user)
             res.send(result);
-        }),
+        })
 
 
 
